@@ -16,7 +16,7 @@
 configuration:
   invoker: VirtualDeviceInvoker
   locale: en-US
-  virtualDeviceToken: aebfbe63-2006-40cd-8476-86b211f6575c
+  virtualDeviceToken: f7e91d64-0477-427c-95b6-15cade37a323
   invocationName: bring
 
 ---
