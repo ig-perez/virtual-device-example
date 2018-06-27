@@ -10,31 +10,29 @@
 # >>> If you need assistance please chat with us here: https://apps.bespoken.io/dashboard (lower right-hand corner)
 #
 # Skill name: "Bring! Shopping List" by Bring! Labs AG
-# Test scope: Skill invocation and removing items
+# Test scope: Skill invocation, focus on first part of interaction
 #=====================================================================================================================
 
 ---
 configuration:
-  locale: en-US
-  voiceId: Joey
-  virtualDeviceToken: f7e91d64-0477-427c-95b6-15cade37a323
+  locale: de-DE
+  voiceId: Hans
+  virtualDeviceToken: 3e936290-e255-4719-b099-f45fffae923c
   invocationName: bring
 
 ---
-- test: "Sequence 01. Test scenario: Invoke intent adding items, no further interaction"
-- open bring and add lettuce: "* lettuce *" # One-shot utterances like these closes the session after the interaction.
+- test: "Sequence 01. Test scenario: Adding items with one-shot utterance, no further interaction"
+- öffne bring und füge obst hinzu: okay obst ist auf deiner liste
 
 ---
-- test: "Sequence 02. Test scenario: Invoke intent removing items, no further interaction"
-- open bring and remove lettuce: ok i have removed lettuce
+- test: "Sequence 02. Test scenario: Removing items with one-shot utterance, no further interaction"
+- öffne bring und entferne obst: okay ich habe obst entfernt
 
 ---
-- test: "Sequence 03. Test scenario: Invoke intent remove items in different interaction"
-- open bring: welcome to bring how can i help
-- add figs: okay figs is on your *
-- what is on my list:
+- test.only: "Sequence 03. Test scenario: Invoke intent, multiple interactions"
+- öffne bring: willkommen
+- sag mir was auf meiner liste ist:
   - prompt:
-    - milk
-    - figs
-    - apples
-- remove figs: "* i have removed figs *"
+    - äpfel
+    - gemüse
+- entferne gemüse: okay ich habe gemüse entfernt

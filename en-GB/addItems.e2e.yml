@@ -10,31 +10,26 @@
 # >>> If you need assistance please chat with us here: https://apps.bespoken.io/dashboard (lower right-hand corner)
 #
 # Skill name: "Bring! Shopping List" by Bring! Labs AG
-# Test scope: Skill invocation and removing items
+# Test scope: Skill invocation and add items
 #=====================================================================================================================
 
 ---
 configuration:
-  locale: en-US
-  voiceId: Joey
-  virtualDeviceToken: f7e91d64-0477-427c-95b6-15cade37a323
+  locale: en-GB
+  voiceId: Amy
+  virtualDeviceToken: cc32efe5-743a-4102-825f-d22af45ed43b
   invocationName: bring
 
 ---
 - test: "Sequence 01. Test scenario: Invoke intent adding items, no further interaction"
-- open bring and add lettuce: "* lettuce *" # One-shot utterances like these closes the session after the interaction.
+- open bring and add apples and oranges: "* apples and oranges *" # One-shot utterances close the session after they are invoked.
 
 ---
-- test: "Sequence 02. Test scenario: Invoke intent removing items, no further interaction"
-- open bring and remove lettuce: ok i have removed lettuce
+- test: "Sequence 02. Test scenario: Check apples and oranges are on the list"
+- open bring and read my list: you have the following items on your list * apples and oranges *
 
 ---
-- test: "Sequence 03. Test scenario: Invoke intent remove items in different interaction"
-- open bring: welcome to bring how can i help
-- add figs: okay figs is on your *
-- what is on my list:
-  - prompt:
-    - milk
-    - figs
-    - apples
-- remove figs: "* i have removed figs *"
+- test: "Sequence 03. Test scenario: Invoke intent adding items in different interaction"
+- open bring: "*"
+- add cider: okay cider is on your *
+- read my list: you have * cider *
