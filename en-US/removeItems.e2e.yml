@@ -18,7 +18,6 @@ configuration:
   locale: en-US
   voiceId: Joey
   virtualDeviceToken: f7e91d64-0477-427c-95b6-15cade37a323
-  invocationName: bring
 
 ---
 - test: "Sequence 01. Test scenario: Invoke intent adding items, no further interaction"
