@@ -8,5 +8,6 @@
   "jest": {
     "silent": true,
     "testMatch": ["**/test/*.yml", "**/tests/*.yml", "**/*.e2e.yml", "**/*.spec.yml"]
-  }
+  },
+  "virtualDeviceToken": "f7e91d64-0477-427c-95b6-15cade37a323"
 }
